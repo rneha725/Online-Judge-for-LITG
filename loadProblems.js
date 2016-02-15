@@ -24,7 +24,7 @@ function fetchProblems()
 		str=str+
 		"<li class=\"list-group-item\">\
     <span class=\"badge\">"+problemArray[i].level+"/10</span>\
-    <a href=\"#\" class=\"link\">"+problemArray[i].name+"</a></li>"
+    <a href=\"problems/"+problemArray[i].code+".html\" class=\"link\">"+problemArray[i].name+"</a></li>"
 	}
 	innerProblemList.innerHTML=str;
 }
