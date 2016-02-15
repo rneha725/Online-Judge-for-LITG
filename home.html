@@ -7,8 +7,11 @@
   <link rel="stylesheet" href="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css">
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.0/jquery.min.js"></script>
   <script src="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js"></script>
+	
+<!--Self-made scripts-->
+	<script src="loadProblems.js"></script>
 </head>
-<body>
+<body onload="fetchProblems()">
 
 <nav class="navbar navbar-default">
   <div class="container-fluid">
@@ -17,45 +20,18 @@
     </div>
     <ul class="nav navbar-nav">
       <li class="active"><a href="#">Home</a></li>
-      <p class="navbar-text navbar-right">Login/Signup</a></p>  
+		<li><p class="navbar-text navbar-right">Login/Signup</p></li>
     </ul>
   </div>
 </nav>
   
 <div class="container">
   <h3>Problems</h3>
-  <ul class="list-group" onload="fetchProblems()" id="problems"></ul>
+  <ul class="list-group" id="problems"></ul>
 </div>
 
 </body>
 
 
-<script>
-function fetchProblems()
-{
-	var problemArray=[
-	{
-		"code":"problem1",
-		"name":"Hello World"
-		"level":2
-	},
-	{
-		"code":"problem2"
-		"name":"Life, Universe and Everything"
-		"level":3
-	}
-	];
 
-	innerProblemList=document.getElementById("problems");
-	string str;
-	for(i in problemArray)
-	{
-		str=
-		"<li class=\"list-group-item\">\
-    <span class=\"badge\">2/10</span>\
-    <a href=\"#\" class=\"link\">"+problemArray[i].name+"</a></li>"
-	}
-	innerProblemList.innerHTML=str;
-}
-</script>
 </html>
