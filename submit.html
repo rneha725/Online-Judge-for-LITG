@@ -1,0 +1,48 @@
+<!DOCTYPE HTML>
+
+<html lang="en">
+<head>
+  <title>Online Judge Home</title>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" href="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.0/jquery.min.js"></script>
+  <script src="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js"></script>
+	
+<!--	Self-made scripts-->
+	<script src="js/globalScripts.js"></script>
+
+</head>
+
+	
+<body>
+	<div id="navigationBar"></div>
+	
+	<div class="container">
+		<form method="post">
+			<div class="form-group " >
+				<textarea class= "form-control col-lg-10" rows= "20"></textarea>
+			</div>
+			
+			<div class= "form-group col-sm-2">
+				<br><br><br>
+				<select class="form-control">
+				<option selected="true" disabled>Select Language:</option>
+				<option id="C">C</option>
+				<option id="C++">C++</option>
+				<option id="Java">Java</option></select>
+			</div>
+
+			<div class="form-group col-sm-3" >
+				<br><br><br>
+				<button type="submit" class= " btn btn-success form-control "  >Submit</button>
+			</div>
+		</form>
+	</div>
+</body>
+
+<script>
+	$(document).ready(navigationBar);
+</script>
+	
+</html>

@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  	<title>Online Judge Home</title>
+	<meta charset="utf-8">
+  	<meta name="viewport" content="width=device-width, initial-scale=1">
+  	<link rel="stylesheet" href="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css">
+  	<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.0/jquery.min.js"></script>
+	<script src="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js"></script>
+<!--	jQuery-->
+	<script src = "libs/jquery-2.2.0.min.js"></script>
+
+
+<!--Self-made scripts-->
+	<script src="js/loadProblems.js"></script>
+	<script src="js/problemList.js"></script>
+	<script src="js/globalScripts.js"></script>
+	
+</head>
+	
+<body>
+
+	<div id="navigationBar"></div>
+  
+	<div class="container">
+	  <h3>Problems</h3>
+	  <ul class="list-group" id="problems"></ul>
+	</div>
+
+</body>
+
+<script>
+	$(document).ready(navigationBar);
+	$(document).ready(fetchProblems);
+</script>
+
+</html>
