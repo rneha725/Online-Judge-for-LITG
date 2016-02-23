@@ -1,5 +1,4 @@
 function fetchProblems() {
-	'use strict';
 	var innerProblemList = document.getElementById("problems"), str = '', i;
 	for (i = 0; i < problemArray.length; i = i + 1) {
 		str = str +
@@ -12,11 +11,12 @@ function loadProblemTemplate(problemCode, problemName) {
 	var win = window.open('problems/problemPageTemplate.html#' + problemCode);
 }
 
+var problemCode = document.URL.split('#').pop();
+
 function loadProblemData() {
-	var problemCode = document.URL.split('#').pop(), obj;
+	var obj;
 	console.log(problemCode);
-	for(var i=0; i < problemArray.length; i++)
-	{
+	for (var i=0; i < problemArray.length; i++)	{
 		if(problemArray[i].code == problemCode) obj=problemArray[i];
 	}
 
@@ -36,3 +36,19 @@ function loadProblemData() {
 	document.getElementById("problemSampleInput").innerHTML=obj.input;
 	document.getElementById("problemSampleOutput").innerHTML=obj.output;
 }
+
+
+/*for problemPageTemplate.html*/
+function onPressSubmit() {
+	window.location.href = "../submit.html#"+problemCode;
+}
+
+
+/*for using problemPageTemple, comment this*/
+function onSubmit() {
+	var problemCode = document.URL.split('/').pop();
+	problemCode = problemCode.split('.')[0];
+	console.log(problemCode);
+	window.location.href="../submit.html#"+problemCode;
+}
+
