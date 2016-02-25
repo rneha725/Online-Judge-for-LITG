@@ -13,7 +13,12 @@
 	
 <!--Codemirror-->
 	<script src = "libs/CodeMirror/lib/codemirror.js"></script>
+	<!--modes available-->
 	<script src = "libs/CodeMirror/mode/javascript/javascript.js"></script>
+	<script src = "libs/CodeMirror/mode/cmake/cmake.js"></script>
+	<script src = "libs/CodeMirror/mode/python/python.js"></script>
+	<script src = "libs/CodeMirror/addon/mode/loadmode.js"></script>
+	
 	<link rel = "stylesheet" href="libs/CodeMirror/lib/codemirror.css">
 	
 <!--Self-made scripts-->
@@ -27,17 +32,18 @@
 	
 	<div class="container">
 		<form method="post" action="result.html" role="form">
-			<div id="codeBox" class="form-group " >
+			<div class="form-group " >
 				<textarea name = "code"	class= "form-control col-lg-10" id = "codeBox" rows= "20"></textarea>
 			</div>
 			
 			<div id="languageSelect" class= "form-group col-sm-2">
 				<br><br><br>
-				<select name="languageSelected" class="form-control">
-				<option selected="true" disabled>Select Language:</option>
-				<option id="C">C</option>
-				<option id="C++">C++</option>
-				<option id="Java">Java</option></select>
+				<select id="languageSelected" name="languageSelected" class="form-control" onchange="changeSyntax()">
+					<option selected="true" disabled>Select Language:</option>
+					<option id="c">C</option>
+					<option id="c++">C++</option>
+					<option id="python">Python</option>
+				</select>
 			</div>
 
 			<div class="form-group col-sm-3" >
