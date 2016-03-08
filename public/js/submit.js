@@ -14,5 +14,4 @@ window.onload =	function() {
 	lineNumbers: true,
 	matchBrackets: true
 	});
-//	changeSyntax();
 }

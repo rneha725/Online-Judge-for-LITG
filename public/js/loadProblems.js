@@ -8,7 +8,7 @@ function fetchProblems() {
 }
 
 function loadProblemTemplate(problemCode, problemName) {
-	var win = window.open('problems/problemPageTemplate.html#' + problemCode);
+	var win = window.open('./html/problems/problemPageTemplate.html#' + problemCode);
 }
 
 var problemCode = document.URL.split('#').pop();

@@ -3,7 +3,6 @@ var problemArray=[
 	code:"problem1",
 	name:"Hello World",
 	level:2,
-	name: "Hello, World!",
 	description: "A \"Hello World\" program has been widely adopted as the introductory program for learning programming. So let's start with functional programming by writing the same program. In this program you need to simply print a \"Hello World\" on standard output. You can use languages listed.",
 	input: "<em>NIL<em>",
 	output: "Hello, World!",
@@ -13,8 +12,7 @@ var problemArray=[
 {
 	code:"problem2",
 	name:"Life, Universe and Everything",
-	level:3,		
-	name: "Life, Universe and Everything",
+	level:3,
 	description: "Your program is to use the brute-force approach in order to find the Answer to Life, the Universe, and Everything. More precisely... rewrite small numbers from input to output. Stop processing input after reading in the number 42. All numbers at input are integers of one or two digits.",
 	input: "1<br>2<br>88<br>42<br>99",
 	output: "1<br>2<br>88",
@@ -26,7 +24,6 @@ var problemArray=[
 	code:"problem3",
 	name:'Factorial',
 	level:4,
-	name: "Factorial",
 	description: "The most important part of a GSM network is so called Base Transceiver Station (BTS). These transceivers form the areas called cells (this term gave the name to the cellular phone) and every phone connects to the BTS with the strongest signal (in a little simplified view). Of course, BTSes need some attention and technicians need to check their function periodically.<br>\
 	The technicians faced a very interesting problem recently. Given a set of BTSes to visit, they needed to find the shortest path to visit all of the given points and return back to the central company building. Programmers have spent several months studying this problem but with no results. They were unable to find the solution fast enough. After a long time, one of the programmers found this problem in a conference article. Unfortunately, he found that the problem is so called \"Traveling Salesman Problem\" and it is very hard to solve. If we have N BTSes to be visited, we can visit them in any order, giving us N! possibilities to examine. The function expressing that number is called factorial and can be computed as a product 1.2.3.4....N. The number is very high even for a relatively small N.<br>\
 	The programmers understood they had no chance to solve the problem. But because they have already received the research grant from the government, they needed to continue with their studies and produce at least some results. So they started to study behavior of the factorial function.<br>\
@@ -40,7 +37,6 @@ var problemArray=[
 	code:"problem4",
 	name:"Holes in the Text",
 	level:1,
-	name: "Holes in the Text",
 	description: "Chef wrote some text on a piece of paper and now he wants to know how many holes are in the text. What is a hole? If you think of the paper as the plane and a letter as a curve on the plane, then each letter divides the plane into regions. For example letters \"A\", \"D\", \"O\", \"P\", \"R\" divide the plane into two regions so we say these letters each have one hole. Similarly, letter \"B\" has two holes and letters such as \"C\", \"E\", \"F\", \"K\" have no holes. We say that the number of holes in the text is equal to the total number of holes in the letters of the text. Help Chef to determine how many holes are in the text.",
 	input: "2<br>CODECHEF<br>DRINKEATCODE",
 	output: "2<br>5",

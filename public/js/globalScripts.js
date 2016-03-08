@@ -6,7 +6,7 @@ function navigationBar() {
 				  <a class="navbar-brand" href="#">Online Judge</a>\
 				</div>\
 				<ul class="nav navbar-nav">\
-				  <li class="active"><a href="/index.html">Home</a></li>\
+				  <li class="active"><a href=/index.html>Home</a></li>\
 				<li><p class="navbar-text navbar-right">Login/Signup</p></li>\
 				</ul>\
 			  </div>\
