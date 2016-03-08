@@ -35,6 +35,7 @@ app.post("/result.html", function (request, response) {
 // app.use("/html/problems", express.static(__dirname + '/problems'));
 app.use("/html", express.static(path.join(__dirname,"../public/html")));
 app.use("/js", express.static(path.join(__dirname,"../public","/js")));
+app.use("/server", express.static(__dirname));
 app.listen(9000);
 
 console.log("Listening... 9000");

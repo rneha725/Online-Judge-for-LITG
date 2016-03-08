@@ -1,37 +1,63 @@
 $(document).ready(loadProblemDesc);
 
-var Heading = React.createClass({
-	render: function(){
-		return (
-			<div className="panel-heading">
-				{this.props.text}
-			</div>
-		)
-	}
-});
-
-var Text = React.createClass({
-	render: function(){
-		return (
-			<div class="panel-body">
-				{this.props.type}
-			</div>
-		);
-	}
-});
+problemCode = document.URL.split("/").pop();
+	problemCode = problemCode.split(".")[0];
+	console.log(problemCode);
 
 function loadProblemDesc() {
 	// extract the code of the problem from URL
-	problemCode = document.URL.split("/").pop();
-	problemCode = problemCode.split(".")[0];
-	console.log(problemCode);
+	
+
+	var Heading = React.createClass({
+	render: function(){
+		return (
+			<div className="panel-heading">
+				<div className="h4">
+					{this.props.text}
+				</div>
+			</div>
+		);
+	}
+	});
+
+	var Content = React.createClass({
+		render: function(){
+			return (
+				<div className="panel-body">
+					{this.props.text}
+				</div>
+			);
+		}
+	});
 
 	var ProblemDesc = React.createClass({
 		render: function(){
 			return (
-				<div className="panel panel-default">
-					<Heading text="Description" />
-					<Text type={problemCode.description} />
+				<div className="panel-group">
+					<div className="panel panel-default">
+						<Heading text="Description"/>
+						<Content text="lorem" />
+					</div>
+
+					<div className="panel panel-default">
+						<Heading text="Input"/>
+						<Content text="lorem" />
+					</div>
+
+					<div className="panel panel-default">
+						<Heading text="Output"/>
+						<Content text="lorem" />
+					</div>
+
+					<div className="panel panel-default">
+						<Heading text="Sample Input"/>
+						<Content text="lorem" />
+					</div>
+
+					<div className="panel panel-default">
+						<Heading text="Sample Onput"/>
+						<Content text="lorem" />
+					</div>
 				</div>
 			);
 		}
@@ -39,3 +65,12 @@ function loadProblemDesc() {
 
 	ReactDOM.render(<ProblemDesc />, document.getElementById("problemDesc"));
 }
+
+
+$(function (){
+	$.getJSON("../../server/problemList.json", function (data) {
+		problemCode = eval(problemCode);
+		// var jsonObj = JSON.parse(data);
+		console.log(data.problemCode.code);
+	});
+});
