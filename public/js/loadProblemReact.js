@@ -1,76 +1,82 @@
-$(document).ready(loadProblemDesc);
+$(document).ready(loadProblemContents);
 
-problemCode = document.URL.split("/").pop();
-	problemCode = problemCode.split(".")[0];
-	console.log(problemCode);
-
-function loadProblemDesc() {
-	// extract the code of the problem from URL
-	
-
-	var Heading = React.createClass({
-	render: function(){
-		return (
-			<div className="panel-heading">
-				<div className="h4">
-					{this.props.text}
-				</div>
-			</div>
-		);
-	}
-	});
-
-	var Content = React.createClass({
-		render: function(){
-			return (
-				<div className="panel-body">
-					{this.props.text}
-				</div>
-			);
-		}
-	});
-
-	var ProblemDesc = React.createClass({
-		render: function(){
-			return (
-				<div className="panel-group">
-					<div className="panel panel-default">
-						<Heading text="Description"/>
-						<Content text="lorem" />
-					</div>
-
-					<div className="panel panel-default">
-						<Heading text="Input"/>
-						<Content text="lorem" />
-					</div>
-
-					<div className="panel panel-default">
-						<Heading text="Output"/>
-						<Content text="lorem" />
-					</div>
-
-					<div className="panel panel-default">
-						<Heading text="Sample Input"/>
-						<Content text="lorem" />
-					</div>
-
-					<div className="panel panel-default">
-						<Heading text="Sample Onput"/>
-						<Content text="lorem" />
-					</div>
-				</div>
-			);
-		}
-	});
-
-	ReactDOM.render(<ProblemDesc />, document.getElementById("problemDesc"));
-}
-
-
-$(function (){
+function problemData(problem, callback){
 	$.getJSON("../../server/problemList.json", function (data) {
-		problemCode = eval(problemCode);
-		// var jsonObj = JSON.parse(data);
-		console.log(data.problemCode.code);
+		$.each(data, function(index, value) {
+			if(value.code == problemCode){
+				problem = value;
+				callback(problem);
+			}
+		});	
 	});
-});
+};
+
+function loadProblemContents() {
+	var problem;
+	// extract the code of the problem from URL
+	problemCode = document.URL.split("/").pop();
+	problemCode = problemCode.split(".")[0];
+
+	problemData(problem, function(problem){
+	// var a = JSON.parse(problem.input);
+	console.log(problem);
+	var Heading = React.createClass({
+		render: function(){
+			return (
+				<div className="panel-heading">
+					<div className="h4">
+						{this.props.text}
+					</div>
+				</div>
+			);
+		}
+	});
+
+		var Content = React.createClass({
+			render: function(){
+				return (
+					<div className="panel-body">
+						<div>
+							{this.props.text}
+						</div>
+					</div>
+				);
+			}
+		});
+
+		var ProblemDesc = React.createClass({
+			render: function(){
+				return (
+					<div className="panel-group">
+						<div className="panel panel-default">
+							<Heading text="Description"/>
+							<Content text={problem.description} />
+						</div>
+
+						<div className="panel panel-default">
+							<Heading text="Input"/>
+							<Content text={problem.inputDesc} />
+						</div>
+
+						<div className="panel panel-default">
+							<Heading text="Output"/>
+							<Content text={problem.outputDesc} />
+						</div>
+
+						<div className="panel panel-default">
+							<Heading text="Sample Input"/>
+							<Content text={problem.input} />
+						</div>
+
+						<div className="panel panel-default">
+							<Heading text="Sample Onput"/>
+							<Content text={problem.output} />
+						</div>
+					</div>
+				);
+			}
+		});
+
+		ReactDOM.render(<ProblemDesc />, document.getElementById("problemDesc"));
+	})
+}
