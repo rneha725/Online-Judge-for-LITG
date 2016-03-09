@@ -12,13 +12,13 @@ function problemData(problem, callback){
 };
 
 function loadProblemContents() {
-	var problem;
+	
 	// extract the code of the problem from URL
-	problemCode = document.URL.split("/").pop();
-	problemCode = problemCode.split(".")[0];
+	problemCode = document.URL.split("#").pop();
+	// problemCode = problemCode.split(".")[0];
 
+	var problem;
 	problemData(problem, function(problem){
-	// var a = JSON.parse(problem.input);
 	console.log(problem);
 	var Heading = React.createClass({
 		render: function(){
@@ -48,6 +48,9 @@ function loadProblemContents() {
 			render: function(){
 				return (
 					<div className="panel-group">
+						<div className="h1">{problem.name}</div>
+						<hr />
+
 						<div className="panel panel-default">
 							<Heading text="Description"/>
 							<Content text={problem.description} />

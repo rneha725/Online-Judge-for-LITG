@@ -1,3 +1,5 @@
+$(document).ready(navigationBar);
+
 function navigationBar() {
 	var nav = document.getElementById("navigationBar");
 	var str = '<nav class="navbar navbar-default">\
