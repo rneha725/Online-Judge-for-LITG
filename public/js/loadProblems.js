@@ -1,5 +1,5 @@
 function problemData(problem, callback) {
-	$.getJSON("../../server/problemList.json", function (data) {
+	$.getJSON("/public/problemList.json", function (data) {
 		callback(data);
 	});
 };

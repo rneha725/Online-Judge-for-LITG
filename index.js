@@ -17,7 +17,7 @@ app.use(bodyParser.urlencoded({     // to support URL-encoded bodies
 // var publicDirectory = __dirname + ".. /public";
 
 app.get('/index.html', function (request, response) {
-	response.sendFile(path.join(__dirname,"../public","/index.html"));
+	response.sendFile(path.join(__dirname,"/public/index.html"));
 	// response.sendFile("../public/index.html")
 });
 
@@ -33,9 +33,10 @@ app.post("/result.html", function (request, response) {
 // app.use("/libs", express.static(__dirname + '/libs'));
 // app.use('/js', express.static(__dirname+"../public"+'/js'));
 // app.use("/html/problems", express.static(__dirname + '/problems'));
-app.use("/html", express.static(path.join(__dirname,"../public/html")));
-app.use("/js", express.static(path.join(__dirname,"../public","/js")));
-app.use("/server", express.static(__dirname));
+app.use("/public", express.static(path.join(__dirname, "/public")));
+app.use("/html", express.static(path.join(__dirname,"/public/html")));
+app.use("/js", express.static(path.join(__dirname,"/public/js")));
+app.use("/app", express.static(path.join(__dirname, "/app")));
 app.listen(9000);
 
 console.log("Listening... 9000");

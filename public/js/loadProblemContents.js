@@ -1,7 +1,7 @@
 $(document).ready(loadProblemContents);
 
 function problemData(problem, callback){
-	$.getJSON("../../server/problemList.json", function (data) {
+	$.getJSON("/public/problemList.json", function (data) {
 		$.each(data, function(index, value) {
 			if(value.code == problemCode){
 				problem = value;
