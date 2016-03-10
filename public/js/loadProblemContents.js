@@ -12,14 +12,14 @@ function problemData(problem, callback){
 };
 
 function loadProblemContents() {
-	
 	// extract the code of the problem from URL
 	problemCode = document.URL.split("#").pop();
-	// problemCode = problemCode.split(".")[0];
 
 	var problem;
 	problemData(problem, function(problem){
-	console.log(problem);
+	
+	//problem contains the data of the specified problem
+
 	var Heading = React.createClass({
 		render: function(){
 			return (
@@ -32,54 +32,58 @@ function loadProblemContents() {
 		}
 	});
 
-		var Content = React.createClass({
-			render: function(){
-				return (
-					<div className="panel-body">
-						<div>
-							{this.props.text}
-						</div>
+	var Content = React.createClass({
+		render: function(){
+			return (
+				<div className="panel-body">
+					<div>
+						{this.props.text}
 					</div>
-				);
-			}
-		});
+				</div>
+			);
+		}
+	});
 
-		var ProblemDesc = React.createClass({
-			render: function(){
-				return (
-					<div className="panel-group">
-						<div className="h1">{problem.name}</div>
-						<hr />
+	var contentObj = [
+		{ heading: "Description",   text: problem.description},
+		{ heading: "Input",         text: problem.inputDesc},
+		{ heading: "Output",        text: problem.outputDesc},
+		{ heading: "Sample Input",  text: problem.input},
+		{ heading: "Sample Output", text: problem.output}
+	];
 
-						<div className="panel panel-default">
-							<Heading text="Description"/>
-							<Content text={problem.description} />
-						</div>
+	var ContentNode = React.createClass({
+		render: function() {
+			return (
+				<div>
+					{this.props.contents.map(function(data){
+						return(
+						 	<div className = "panel panel-default">
+								<Heading text = {data.heading} />
+								<Content text = {data.text} />
+							</div>
+						);
+					})}
+				</div>
+			);
+		}
+	});
 
-						<div className="panel panel-default">
-							<Heading text="Input"/>
-							<Content text={problem.inputDesc} />
-						</div>
 
-						<div className="panel panel-default">
-							<Heading text="Output"/>
-							<Content text={problem.outputDesc} />
-						</div>
-
-						<div className="panel panel-default">
-							<Heading text="Sample Input"/>
-							<Content text={problem.input} />
-						</div>
-
-						<div className="panel panel-default">
-							<Heading text="Sample Onput"/>
-							<Content text={problem.output} />
-						</div>
+	var ProblemDesc = React.createClass({
+		render: function(){
+			return (
+				<div className="panel-group">
+					<div className="h1">{problem.name}
 					</div>
-				);
-			}
-		});
+					<hr />
 
-		ReactDOM.render(<ProblemDesc />, document.getElementById("problemDesc"));
+					<ContentNode contents = {this.props.data} />
+				</div>
+			);
+		}
+	});
+
+	ReactDOM.render(<ProblemDesc data = {contentObj} />, document.getElementById("problemDesc"));
 	})
 }
