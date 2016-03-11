@@ -57,6 +57,7 @@ function loadProblemContents() {
 			return (
 				<div>
 					{this.props.contents.map(function(data){
+						if(data.text != "NIL")
 						return(
 						 	<div className = "panel panel-default">
 								<Heading text = {data.heading} />

@@ -30,9 +30,6 @@ app.post("/result.html", function (request, response) {
 	
 });
 
-// app.use("/libs", express.static(__dirname + '/libs'));
-// app.use('/js', express.static(__dirname+"../public"+'/js'));
-// app.use("/html/problems", express.static(__dirname + '/problems'));
 app.use("/public", express.static(path.join(__dirname, "/public")));
 app.use("/html", express.static(path.join(__dirname,"/public/html")));
 app.use("/js", express.static(path.join(__dirname,"/public/js")));
