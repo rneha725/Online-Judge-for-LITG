@@ -23,42 +23,7 @@ function loadProblemTemplate(problemCode, problemName) {
 
 var problemCode = document.URL.split('#').pop();
 
-function loadProblemData() {
-	var obj;
-	console.log(problemCode);
-	for (var i=0; i < problemArray.length; i++)	{
-		if(problemArray[i].code == problemCode) obj=problemArray[i];
-	}
-
-	document.getElementById("problemName").innerHTML=obj.name;
-	document.getElementById("problemDescription").innerHTML=obj.description;
-    
-    if(obj.inputDesc)
-	document.getElementById("problemInputDesc").innerHTML=obj.inputDesc;
-    else
-        document.getElementById("problemInputDescPanel").remove();
-    
-    if(obj.outputDesc)
-	document.getElementById("problemOutputDesc").innerHTML=obj.outputDesc;
-    else
-        document.getElementById("problemOutputDescPanel").remove();
-	
-	document.getElementById("problemSampleInput").innerHTML=obj.input;
-	document.getElementById("problemSampleOutput").innerHTML=obj.output;
-}
-
-
 /*for problemPageTemplate.html*/
 function onPressSubmit() {
 	window.location.href = "../submit.html#"+problemCode;
 }
-
-
-/*for using problemPageTemple, comment this*/
-function onSubmit() {
-	var problemCode = document.URL.split('/').pop();
-	problemCode = problemCode.split('.')[0];
-	console.log(problemCode);
-	window.location.href="../submit.html#"+problemCode;
-}
-
