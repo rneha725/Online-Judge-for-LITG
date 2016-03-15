@@ -1,10 +1,4 @@
 {
-	"name": "Online-Judge",
-	"description": "A platform to pratice coding.",
-	"repository": {
-  		"type": "git",
-  		"url": "https://github.com/rneha725/Online-Judge-for-LITG.git"
-	},
 	"dependencies":
 	{
 		"express":"*",
