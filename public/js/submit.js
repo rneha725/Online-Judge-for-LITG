@@ -6,14 +6,9 @@ function loadCodeBox() {
 	matchBrackets: true
 	});
 }
-
-
 //React function 
-
 $(document).ready(loadReactStructure);
-
 function loadReactStructure() {
-
 	var CodeBox = React.createClass({
 		render: function() {
 			return (
@@ -51,7 +46,6 @@ function loadReactStructure() {
 			);
 		}
 	});
-
 
 	var CodeBoxLanguages = React.createClass({
 		render: function() {
