@@ -27,7 +27,7 @@
 	<script src = "https://cdnjs.cloudflare.com/ajax/libs/react/0.14.7/react-dom.js"></script>
 
 <!--Self-made scripts-->
-	<script src = "../js/globalScripts.js"></script>
+	<script type = "text/babel" src = "../js/globalScripts.js"></script>
 	<script type = "text/babel" src ="../js/submit.js"></script> 
 
 </head>
@@ -36,22 +36,28 @@
 	<div id="navigationBar"></div>
 	
 	<div class="container">
-		<form method="post" action="./result.html" role="form" id="submitForm">
-			<!-- React on this div -->
+		<div id = "form"></div>
+		<form method="post" id="submitForm">
+			
 			<div id="codeAndSelect">
 			</div>
 
 			<div class="form-group col-sm-3" >
 				<br><br><br>
-				<button type="submit" class= "form-control btn btn-success"  >Submit</button>
+				<button type="submit" class= "form-control btn btn-success">Submit</button>
 			</div>
 			
 			<div class="form-group col-sm-3" >
 				<br><br><br>
-				<button type="reset" class= "form-control btn btn-success"  >Clear All</button>
+				<button type="reset" class= "form-control btn btn-success">Clear All</button>
 			</div>
 		</form>
 	</div>
 </body>
-	
+	<script>
+			var code = document.URL.split("#").pop();
+			code = "./result.html?" + code;
+			console.log(code);
+			document.getElementById("submitForm").action = code;
+	</script>
 </html>

@@ -6,14 +6,17 @@ function loadCodeBox() {
 	matchBrackets: true
 	});
 }
+
 //React function 
 $(document).ready(loadReactStructure);
+
 function loadReactStructure() {
+	
 	var CodeBox = React.createClass({
 		render: function() {
 			return (
 				<div className = "form-group">
-					<textarea className = "form-control col-lg-10" id = "codeBox" rows= "20">
+					<textarea name="code" className = "form-control col-lg-10" id = "codeBox" rows= "20">
 					</textarea>
 				</div>
 			);
@@ -34,7 +37,7 @@ function loadReactStructure() {
 			return(
 				<div className = "form-group col-sm-2">
 					<br /><br /><br />
-					<select className = "form-control" onChange={this.changeSyntax}>
+					<select name="language" className = "form-control" onChange={this.changeSyntax}>
 						<option selected="true" disabled>Select Language:</option>
 						{this.props.languages.map(function(language){
 							return (
@@ -50,7 +53,7 @@ function loadReactStructure() {
 	var CodeBoxLanguages = React.createClass({
 		render: function() {
 			return(
-				<div >
+				<div>
 					<CodeBox />
 					<DropDownLanguages languages = {this.props.languages} />
 				</div>
@@ -62,10 +65,9 @@ function loadReactStructure() {
 		{id: "c",      name: "C"},
 		{id: "c++",    name: "C++"},
 		{id: "python", name: "Python"}
-	]
+	];
 
-	ReactDOM.render(<CodeBoxLanguages languages = {languagesAvailable}/>, document.getElementById("codeAndSelect"));
+	ReactDOM.render(<CodeBoxLanguages languages = {languagesAvailable} />, document.getElementById("codeAndSelect"));
 
 	loadCodeBox();
 }
-
